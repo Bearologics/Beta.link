@@ -14,6 +14,7 @@ struct BetaLink: Website {
             let author: String?
             let authorUrl: String?
             let url: String?
+            let visible: Bool?
         }
 
         var url = URL(string: "https://beta.link")!

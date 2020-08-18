@@ -245,7 +245,9 @@ private extension Node where Context == HTML.BodyContext {
     }
     
     static func itemList<T: Website>(for items: [Item<T>], on site: T) -> Node {
-        return forEach(Array(items).chunked(into: 3)) { chunk in
+        return forEach(Array(items.filter({
+            ($0.metadata as? BetaLink.ItemMetadata)?.visible ?? false
+        })).chunked(into: 3)) { chunk in
             .div(.class("row"), forEach(chunk) { item in
                 let metaData = item.metadata as? BetaLink.ItemMetadata
                 return div(.class("col-sm-4"), article(
