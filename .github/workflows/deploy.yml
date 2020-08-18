@@ -3,7 +3,7 @@ name: Build and deploy Beta.link
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - "*"
 
